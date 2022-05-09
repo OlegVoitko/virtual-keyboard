@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 const titleName = document.createElement('div');
 titleName.className = 'centralizer';
 titleName.innerHTML = "<p class='title'>RSS Virtual Keyboard</p>";
