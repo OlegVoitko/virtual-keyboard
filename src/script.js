@@ -6,6 +6,8 @@ document.body.append(titleName);
 const textarea = document.createElement('textarea');
 textarea.className = 'body--textarea textarea';
 titleName.append(textarea);
+textarea.setAttribute('rows', '5');
+textarea.setAttribute('cols', '50');
 
 const bodyKeyboard = document.createElement('div');
 bodyKeyboard.className = 'body_keyboard keyboard';
@@ -211,7 +213,11 @@ keyBackspace.innerHTML = 'Backspace';
 bodyKeyboardRow.append(keyBackspace);
 
 keyBackspace.addEventListener('mousedown', () => {
-  textarea.append('');
+  if (textarea.selectionStart !== textarea.selectionEnd) {
+    textarea.setRangeText('', textarea.selectionStart, textarea.selectionEnd, 'end');
+  } else if (textarea.selectionStart > 0) {
+    textarea.setRangeText('', textarea.selectionStart - 1, textarea.selectionEnd, 'end');
+  }
   keyBackspace.classList.toggle('active');
   keyBackspace.addEventListener('click', () => {
     keyBackspace.classList.remove('active');
@@ -406,7 +412,6 @@ Delete.innerHTML = 'Del';
 bodyKeyboardRow1.append(Delete);
 
 Delete.addEventListener('mousedown', () => {
-  textarea.append('Del');
   Delete.classList.toggle('active');
   Delete.addEventListener('click', () => {
     Delete.classList.remove('active');
@@ -1004,7 +1009,6 @@ document.addEventListener('keydown', (event) => {
     keyEqual.classList.toggle('active');
   }
   if (event.code === 'Backspace') {
-    textarea.append('');
     keyBackspace.classList.toggle('active');
   }
   if (event.code === 'Tab') {
