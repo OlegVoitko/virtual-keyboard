@@ -5,14 +5,12 @@ module.exports = {
     node: true,
   },
   extends: [
-    "eslint:recommended",
+    'airbnb-base',
   ],
   parserOptions: {
-    ecmaVersion: "latest",
-    sourceType: "module",
+    ecmaVersion: 'latest',
+    sourceType: 'module',
   },
   rules: {
-    semi: ["error", "always"],
-    quotes: ["error", "double"],
-  },  
+  },
 };
