@@ -833,8 +833,6 @@ ShiftRight.addEventListener('mousedown', () => {
   });
 });
 
-// Fifth line===========================================================
-
 const ControlLeft = document.createElement('div');
 ControlLeft.className = 'key ControlLeft';
 ControlLeft.innerHTML = 'Ctrl';
